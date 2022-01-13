@@ -10,4 +10,3 @@ class TitleFilter(filters.FilterSet):
     class Meta:
         model = Title
         fields = ('category', 'genre', 'name', 'year', )
-
