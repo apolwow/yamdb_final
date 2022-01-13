@@ -37,7 +37,7 @@ class UserMeSerializer(serializers.ModelSerializer):
 class CurrentTitleDefault:
     requires_context = True
 
-    def __call__(self, serializer_field):
+    def __call__(self,  serializer_field):
         return serializer_field.context['view'].kwargs['title_id']
 
 
@@ -63,6 +63,7 @@ class ReviewSerializer(serializers.ModelSerializer):
         read_only_fields = ('id', 'author', 'pub_date', 'title')
 
     def validate(self, data):
+        data = super().validate(data)
         if self._kwargs['context']['action'] == 'create':
             user = self._kwargs['context']['user']
             title = self._kwargs['context']['title']
@@ -72,7 +73,7 @@ class ReviewSerializer(serializers.ModelSerializer):
                 raise serializers.ValidationError(
                     'На одно произведение пользователь'
                     'может оставить только один отзыв')
-        return super().validate(data)
+        return data
 
 
 class CategorySerializer(serializers.ModelSerializer):
