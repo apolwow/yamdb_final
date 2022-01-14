@@ -1,6 +1,9 @@
 name: yamdb_final workflow
 
-on: [push]
+on:
+  push:
+    paths-ignore:
+      - '**/README.md'
 
 jobs:
   tests:
