@@ -32,7 +32,7 @@ SECRET_KEY=<...>	# ключ для settings.py
 #### Как запустить проект
 Клонировать репозиторий и перейти в него в командной строке:
 
-`https://github.com/apolwow/infra_sp2.git`
+`https://github.com/apolwow/yamdb_final.git`
 
 Перейти в директорию с файлом docker-compose.yaml:
 
